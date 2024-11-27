@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산 결과</title>
+</head>
+<body>
+    <h1>제작 비용 및 이득/손해</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>이미지</th>
+                <th>아이템 이름</th>
+                <th>총 제작 비용</th>
+                <th>1개당 제작 비용</th>
+                <th>판매 가격 (1개)</th>
+                <th>경매장 수수료</th>
+                <th>최종 받을 금액</th>
+                <th>1개당 이득/손해</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in results %}
+            <tr>
+                <td>
+                    <img src="{{ item.icon_url }}" alt="{{ item.name }}" style="width: 50px; height: 50px;">
+                </td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.total_cost }} 골드</td>
+                <td>{{ item.cost_per_unit }} 골드</td>
+                <td>{{ item.selling_price }} 골드</td>
+                <td>{{ item.auction_fee }} 골드</td>
+                <td>{{ item.final_amount }} 골드</td>
+                <td>{{ item.profit_per_unit }} 골드</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>재료 정보</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>재료 이름</th>
+                <th>이미지</th>
+                <th>구매 시 개수</th>
+                <th>최근 가격</th>
+                <th>개당 가격</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for material in material_info %}
+            <tr>
+                <td>{{ material.name }}</td>
+                <td>
+                    <img src="{{ material.icon_url }}" alt="{{ material.name }}" style="width: 50px; height: 50px;">
+                </td>
+                <td>{{ material.bundle_count }}</td>
+                <td>{{ material.recent_price }} 골드</td>
+                <td>{{ material.price_per_unit }} 골드</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <form method="post" action="{% url 'fetch_prices' %}" style="margin-top: 20px;">
+        {% csrf_token %}
+        <button type="submit">데이터 최신화</button>
+    </form>
+    <!-- 계산기로 돌아가기 버튼 -->
+    <div style="margin-top: 10px;">
+        <a href="{% url 'calculate_profit' %}">
+            <button type="button">제작 비용 계산기로 이동</button>
+        </a>
+    </div>
+    
+    <p style="margin-top: 10px;">
+        {% if last_updated %}
+        마지막 데이터 갱신: {{ last_updated }}
+        {% else %}
+        마지막 데이터 갱신: 갱신 기록 없음
+        {% endif %}
+    </p>
+    
+
+</body>
+</html>

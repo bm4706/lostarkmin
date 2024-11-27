@@ -1,0 +1,22 @@
+<!-- templates/lostark_market/calculate.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제작 비용 계산기</title>
+</head>
+<body>
+    <h1>제작 비용 계산</h1>
+    <form method="post" action="{% url 'calculate_profit' %}">
+        {% csrf_token %}
+        <label><input type="checkbox" name="exclude_ancient"> 고대 유물 제외</label><br>
+        <label><input type="checkbox" name="exclude_rare"> 희귀한 유물 제외</label><br>
+        <label><input type="checkbox" name="exclude_oreha"> 오레하 유물 제외</label><br>
+        <label><input type="checkbox" name="exclude_abidos"> 아비도스 유물 제외</label><br>
+        <label>수수료 감소 (%): <input type="number" name="discount" value="0" step="1"></label><br>
+        <button type="submit">계산</button>
+    </form>
+    
+</body>
+</html>
