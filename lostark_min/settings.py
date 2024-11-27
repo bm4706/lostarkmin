@@ -35,7 +35,7 @@ SECRET_KEY = "django-insecure-%ozch-8j@5$j$g2r=f0z_hfwq&jlh@g6l-47%l)^#%n&vne00$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['lostmin.duckdns.org', '43.200.176.164']
+ALLOWED_HOSTS = ['lostmin.duckdns.org']
 
 
 
