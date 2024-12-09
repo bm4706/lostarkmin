@@ -15,9 +15,13 @@ Django 기반 웹 애플리케이션으로, 로스트아크 공식 API를 활용
 ## 기술 스텍
 
 백엔드: Django (Python)
+
 프론트엔드: HTML, CSS (Django 템플릿)
+
 데이터베이스: SQLite (개발), PostgreSQL (배포)
+
 배포: AWS EC2 (Gunicorn + Nginx)
+
 API 연동: 로스트아크 공식 API
 
 ## 작동 원리
@@ -25,11 +29,13 @@ API 연동: 로스트아크 공식 API
 #### 1. 시장 데이터 가져오기
 
 로스트아크 API를 통해 재료와 아이템의 실시간 시장 데이터를 가져옵니다.
+
 데이터는 데이터베이스에 저장되어 계산 시 사용됩니다.
 
 #### 2. 제작 이익 계산
 
 사용자가 입력한 데이터를 바탕으로 제작 비용, 경매장 수수료, 최종 이익/손해를 계산합니다.
+
 재료를 제외하거나 할인율을 적용할 수 있는 옵션을 제공합니다.
 
 #### 3. 실시간 데이터 업데이트
@@ -48,6 +54,7 @@ API 연동: 로스트아크 공식 API
 ![result](https://github.com/user-attachments/assets/817fd794-fc19-4082-9d0b-635fc77b6729)
 
 계산을 통해 본인이 오레하 유물을 제작한다면 1개당 이익(손해)가 얼마만큼 발생하는지 확인 할 수 있습니다.
+
 또한, 데이터 최신 버튼을 통해 실시간으로 변경되는 재료값을 한번 가져오도록합니다.
 
 
@@ -55,25 +62,38 @@ API 연동: 로스트아크 공식 API
 
 #### 1. 프로젝트 클론
 git clone https://github.com/bm4706/lostarkmin.git
+
 cd lostark-market-calculator
 
+
 #### 2. 가상 환경 설정
+
 python3 -m venv venv
+
 source venv/bin/activate  # Linux/macOS
+
 venv\Scripts\activate     # Windows
 
+
 #### 3. 패키지 설치
+
 pip install -r requirements.txt
 
+
 #### 4. 환경 변수 설정
+
 .env 파일 생성후에 본인의 키를 넣으시면 됩니다.
 
 LOSTARK_API_TOKEN=<본인 api 키>
 
+
 #### 5. 데이터베이스 마이그레이션
+
 python manage.py migrate
 
+
 #### 6. 실행
+
 python manage.py runserver
 
 
