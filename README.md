@@ -97,7 +97,10 @@ python manage.py migrate
 python manage.py runserver
 
 
-## 참고 자료
+## 기타
+
+#### 블로그 : https://bm4706.tistory.com/136
+
 
 #### 로스트아크 공식 api : https://developer-lostark.game.onstove.com/
 
