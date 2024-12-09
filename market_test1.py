@@ -1,3 +1,13 @@
+"""
+거래소에서 아이템 정보 추출하는 코드입니다.
+
+json_data에서 CategoryCode와 itemname부분을 원하는 값으로 변경합니다.
+
+그리고 파이썬을 실행시키면 입력값과 일치하는 결과물들을 하나씩 보여줍니다.
+
+
+"""
+
 import requests
 import json
 import os

@@ -1,3 +1,14 @@
+
+
+"""
+공지사항 정보를 가져오는 코드입니다.
+
+딱히 원하는 정보를 가져오는 것이 아닌 
+
+홈페이지에 있는 진행중인 공지를 가져옵니다.
+
+"""
+
 import requests
 import json
 import os
@@ -13,6 +24,7 @@ headers = {
     'accept': 'application/json',
     'authorization': f'Bearer {Token}'  # Bearer 추가
 }
+
 
 url = 'https://developer-lostark.game.onstove.com/news/events'
 

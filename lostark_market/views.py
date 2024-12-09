@@ -32,6 +32,8 @@ def fetch_material_prices(request):
         {"ItemName": "최상급 오레하 융화 재료", "CategoryCode": 50010},
     ]
     
+    
+    
 
     for material in materials:
         json_data = {
